@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1" />
+<meta name="theme-color" content="#0a0a1a" />
+<title>For Jaidev · A Friendship Archive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=Caveat:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<!-- background layers -->
+<canvas id="particles" aria-hidden="true"></canvas>
+<canvas id="confetti" aria-hidden="true"></canvas>
+<div class="aurora" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+
+<!-- progress + audio chrome -->
+<div id="progress" class="progress hidden"><span id="progress-fill"></span></div>
+<div id="chapter-tag" class="chapter-tag hidden"></div>
+
+<button id="audio-toggle" class="audio-toggle hidden" aria-label="Turn music on or off" title="Music on / off">
+  <span class="audio-bars"><i></i><i></i><i></i><i></i></span>
+  <span class="audio-slash" aria-hidden="true"></span>
+</button>
+<audio id="bg-audio" loop preload="auto">
+  <!-- Reel-only soundtrack: "bliss" lofi hip hop beat (free for profit use, archive.org).
+       Plays only during the memories reel. Swap imgs/reel-music.mp3 to change it. -->
+  <source src="imgs/reel-music.mp3" type="audio/mpeg" />
+</audio>
+
+<main id="stage">
+
+  <!-- ============ SCENE 1 — WELCOME ============ -->
+  <section class="scene scene--center is-active" data-scene="1">
+    <p class="eyebrow fade-up">A surprise has been unlocked</p>
+    <h1 class="hero-name glow fade-up d1">Jaidev</h1>
+    <p class="hero-sub typmax fade-up d2" data-type="Happy Birthday, buddy. Sit back — this one&rsquo;s for you."></p>
+    <button class="btn reveal-later" data-next>Begin the journey →</button>
+  </section>
+
+  <!-- ============ SCENE 3 — HOW IT BEGAN ============ -->
+  <section class="scene scene--center" data-scene="3">
+    <p class="eyebrow fade-up">Chapter One · 8th Class</p>
+    <h2 class="scene-title fade-up d1">Where it all began</h2>
+    <p class="prose typmax" data-type="It started in 8th class. Same school, same classroom, same mischief.\nThen the same college — because some people are just meant to walk the same road.\nYears passed. We grew up. The friendship only got stronger."></p>
+    <button class="btn reveal-later" data-next>Walk the timeline →</button>
+  </section>
+
+  <!-- ============ SCENE 4 — MEMORIES REEL ============ -->
+  <section class="scene scene--reel" data-scene="4" data-reel>
+    <p class="eyebrow reel-eyebrow fade-up">Chapter Two · All About You</p>
+    <div class="reel" id="reel">
+      <div class="reel-stage" id="reel-stage">
+        <figure class="reel-slide ken-a"><img loading="eager" src="imgs/converted/IMG_0172.jpg" alt="" /><figcaption>Jaidev — the man himself.</figcaption></figure>
+        <figure class="reel-slide ken-b"><img loading="lazy" src="imgs/converted/IMG_1361.jpg" alt="" /><figcaption>Sharp as always.</figcaption></figure>
+        <figure class="reel-slide ken-c"><img loading="lazy" src="imgs/converted/IMG_3424.jpg" alt="" /><figcaption>Born to stand out.</figcaption></figure>
+        <figure class="reel-slide reel-slide--video">
+          <video src="imgs/1A263D97-75D1-4CBE-B907-3E575F458A4E.MP4" muted playsinline preload="auto"></video>
+          <figcaption>A moment, just you.</figcaption>
+        </figure>
+        <figure class="reel-slide ken-d"><img loading="lazy" src="imgs/IMG_8109.jpg" alt="" /><figcaption>That smile says it all.</figcaption></figure>
+        <figure class="reel-slide reel-slide--video">
+          <video src="imgs/filtered-CDC101F4-3949-4536-B585-CCF2A745D6E6.mp4" muted playsinline preload="auto"></video>
+          <figcaption>Caught in motion.</figcaption>
+        </figure>
+        <figure class="reel-slide ken-a"><img loading="lazy" src="imgs/IMG_4306.jpg" alt="" /><figcaption>Effortlessly you.</figcaption></figure>
+        <figure class="reel-slide ken-b"><img loading="lazy" src="imgs/85dd8c66-051d-4cd3-8af6-0d4e155ac8a9.JPG" alt="" /><figcaption>Looking the part.</figcaption></figure>
+        <figure class="reel-slide ken-c"><img loading="lazy" src="imgs/WhatsApp Image 2026-06-17 at 22.33.53.jpeg" alt="" /><figcaption>Main character energy.</figcaption></figure>
+        <figure class="reel-slide reel-slide--video">
+          <video src="imgs/filtered-48B3F25B-549E-498B-9376-0D69978DE9C5.mp4" muted playsinline preload="auto"></video>
+          <figcaption>Pure you, in real time.</figcaption>
+        </figure>
+        <figure class="reel-slide ken-d"><img loading="lazy" src="imgs/WhatsApp Image 2026-06-17 at 22.33.54.jpeg" alt="" /><figcaption>Standing tall.</figcaption></figure>
+        <figure class="reel-slide ken-a"><img loading="lazy" src="imgs/WhatsApp Image 2026-06-17 at 22.33.54 (1).jpeg" alt="" /><figcaption>The legend, in frame.</figcaption></figure>
+        <figure class="reel-slide reel-slide--video">
+          <video src="imgs/1c58da7e-clip.mp4" muted playsinline preload="auto"></video>
+          <figcaption>Lights, camera — you.</figcaption>
+        </figure>
+        <figure class="reel-slide ken-b"><img loading="lazy" src="imgs/WhatsApp Image 2026-06-17 at 22.33.54 (2).jpeg" alt="" /><figcaption>Golden hour, golden guy.</figcaption></figure>
+        <figure class="reel-slide ken-c"><img loading="lazy" src="imgs/WhatsApp-extra.jpeg" alt="" /><figcaption>Here&rsquo;s to you, buddy.</figcaption></figure>
+      </div>
+      <div class="reel-grain" aria-hidden="true"></div>
+      <span class="reel-pause" id="reel-pause" aria-hidden="true">❚❚</span>
+      <div class="reel-progress"><span id="reel-progress-fill"></span></div>
+      <div class="reel-dots" id="reel-dots"></div>
+      <p class="reel-hint" id="reel-hint">tap to pause · tap edges to skip</p>
+    </div>
+    <button class="btn center-btn reveal-later" id="reel-next" data-next>Continue →</button>
+  </section>
+
+  <!-- ============ SCENE 5 — STATS ============ -->
+  <section class="scene scene--center" data-scene="5">
+    <p class="eyebrow fade-up">Chapter Four · The Stats</p>
+    <h2 class="scene-title fade-up d1">A friendship in numbers</h2>
+    <div class="stats">
+      <div class="stat glass reveal"><span class="stat-num" data-count="10" data-suffix="+">0</span><span class="stat-label">Years strong</span></div>
+      <div class="stat glass reveal"><span class="stat-num" data-count="365" data-suffix="">0</span><span class="stat-label">Days we talk a year</span></div>
+      <div class="stat glass reveal"><span class="stat-num" data-count="1" data-suffix="">0</span><span class="stat-label">Buddy by choice</span></div>
+      <div class="stat glass reveal"><span class="stat-num inf">∞</span><span class="stat-label">Memories made</span></div>
+    </div>
+    <button class="btn reveal-later" data-next>I wrote you something →</button>
+  </section>
+
+  <!-- ============ SCENE 7 — LETTER ============ -->
+  <section class="scene scene--center" data-scene="7">
+    <p class="eyebrow fade-up">Chapter Five · A Letter</p>
+    <div class="env-wrap" id="env-wrap">
+      <div id="envelope" class="envelope">
+        <div class="env-back"></div>
+        <div class="env-front"></div>
+        <div class="env-flap"></div>
+        <div class="env-seal" id="env-seal">Tap to open ✦</div>
+      </div>
+      <div class="letter glass" id="letter">
+        <p class="letter-line">Dear Jaidev,</p>
+        <p class="letter-line">From 8th class classmates to lifelong friends. From school to the same college. From childhood conversations to talking about our careers, our dreams, and our lives — almost every single day.</p>
+        <p class="letter-line">You&rsquo;ve been one of the most constant, valuable people in my life. Through the laughter, the struggles, and every win along the way.</p>
+        <p class="letter-line">Thank you for being the buddy I chose.</p>
+        <p class="letter-line sign">— Kushwanth</p>
+      </div>
+    </div>
+    <button class="btn reveal-later" id="letter-next" data-next>Continue →</button>
+  </section>
+
+  <!-- ============ SCENE 8 — GRATITUDE ============ -->
+  <section class="scene scene--center" data-scene="8">
+    <p class="eyebrow fade-up">Chapter Six · Gratitude</p>
+    <h2 class="scene-title fade-up d1">Just so you know</h2>
+    <p class="prose typmax" data-type="Thank you for the trust. The loyalty. The honesty.\nFor always picking up. For always being there.\nNot everyone is lucky enough to find a friend like you.\nI am."></p>
+    <button class="btn reveal-later" data-next>Almost there →</button>
+  </section>
+
+  <!-- ============ SCENE 9 — WISHES ============ -->
+  <section class="scene scene--center" data-scene="9" data-celebrate>
+    <p class="eyebrow fade-up">Chapter Seven · The Wish</p>
+    <h2 class="hbd glow fade-up d1">Happy Birthday,<br/>Jaidev</h2>
+    <p class="prose center fade-up d2">Here&rsquo;s to more years, more dreams chased, and more late-night calls. May this one be your best yet.</p>
+    <button class="btn reveal-later" data-next>One last thing… 🎁</button>
+  </section>
+
+  <!-- ============ SCENE 10 — GIFT REVEAL ============ -->
+  <section class="scene scene--center scene--gift" data-scene="10">
+    <div id="gift-stage" class="gift-stage">
+      <div id="gift-picker" class="gift-picker">
+        <p class="prose center fade-up" id="pick-prompt">Only <strong>one</strong> of these boxes hides your gift.<br/>Go on Jaidev — pick one 🎁</p>
+        <div class="boxes fade-up d1" id="boxes">
+          <button class="giftbox" data-box="0" aria-label="Gift box 1"><span class="ribbon-v"></span><span class="lid"></span><span class="bow"></span></button>
+          <button class="giftbox" data-box="1" aria-label="Gift box 2"><span class="ribbon-v"></span><span class="lid"></span><span class="bow"></span></button>
+          <button class="giftbox" data-box="2" aria-label="Gift box 3"><span class="ribbon-v"></span><span class="lid"></span><span class="bow"></span></button>
+        </div>
+        <p class="pick-result" id="pick-result"></p>
+      </div>
+
+      <div id="gift-card-wrap" class="gift-card-wrap hidden">
+        <div class="zepto-flip" id="zepto-flip">
+          <div class="zepto-flip-inner">
+            <!-- FRONT -->
+            <div class="zepto-face zepto-front">
+              <div class="zepto-top">
+                <span class="zepto-logo">Zepto</span>
+                <span class="zepto-chip"></span>
+              </div>
+              <p class="zepto-label">Gift Card</p>
+              <p class="zepto-amount">₹100</p>
+              <p class="zepto-for">For: <strong>Jaidev</strong></p>
+              <p class="zepto-from">From: Kushwanth</p>
+              <span class="flip-hint">tap to flip ⟳</span>
+            </div>
+            <!-- BACK -->
+            <div class="zepto-face zepto-back">
+              <div class="zepto-top">
+                <span class="zepto-logo small">Zepto</span>
+                <span class="zepto-strip"></span>
+              </div>
+              <p class="zepto-back-label">Gift Card Number</p>
+              <p class="zepto-code">6009&nbsp;7500&nbsp;2338&nbsp;1607</p>
+              <div class="zepto-meta">
+                <div><span>PIN</span><strong>202893</strong></div>
+                <div><span>Amount</span><strong>₹100.00</strong></div>
+                <div><span>Valid till</span><strong>17 Jun 2027</strong></div>
+              </div>
+              <span class="flip-hint">tap to flip back ⟳</span>
+            </div>
+          </div>
+        </div>
+        <p class="gift-msg">From 8th class classmates to lifelong friends.<br/>Thank you for being the buddy I chose. 🤍</p>
+        <button class="btn btn-ghost" id="replay">↻ Replay the journey</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
