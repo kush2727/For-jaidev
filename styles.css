@@ -288,6 +288,14 @@ body{
 .zepto-meta strong{font-family:'JetBrains Mono',monospace;font-size:.9rem;color:var(--gold);outline:none;white-space:nowrap}
 .flip-hint{position:absolute;bottom:10px;right:14px;font-size:.66rem;color:rgba(255,255,255,.7);letter-spacing:.04em}
 .zepto-back .flip-hint{left:14px;right:auto}
+/* Zomato brand variant (same flip design, red) */
+.zepto-flip.brand-zomato .zepto-front{background:linear-gradient(135deg,#7a0f1d,#b81d2c 55%,#e23744)}
+.zepto-flip.brand-zomato .zepto-back{background:linear-gradient(135deg,#5e0a16,#9a1825 60%,#cf2435)}
+.zepto-flip.brand-zomato .zepto-face{animation:cardGlowRed 3s ease-in-out infinite alternate}
+@keyframes cardGlowRed{from{box-shadow:0 20px 70px rgba(226,55,68,.4),inset 0 1px 0 rgba(255,255,255,.2)}
+  to{box-shadow:0 22px 90px rgba(255,90,100,.7),inset 0 1px 0 rgba(255,255,255,.3)}}
+/* two stacked cards: keep them on-screen */
+.gift-card-wrap{max-height:88vh;overflow-y:auto;width:100%;padding:6px 0}
 .gift-msg{font-family:'Caveat',cursive;font-size:clamp(1.3rem,5.5vw,1.7rem);color:var(--gold);line-height:1.45;
   text-align:center;max-width:22ch;text-shadow:0 0 24px rgba(255,200,120,.35)}
 

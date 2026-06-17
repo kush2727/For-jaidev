@@ -249,14 +249,13 @@
     show(0);
   }
 
-  /* ---------- gift card flip ---------- */
-  var zflip = document.getElementById('zepto-flip');
-  if (zflip) {
+  /* ---------- gift card flip (each card flips independently) ---------- */
+  $all('.zepto-flip').forEach(function (zflip) {
     zflip.addEventListener('click', function (e) {
       if (e.target && e.target.isContentEditable) return; // don't flip while editing fields
       zflip.classList.toggle('flipped');
     });
-  }
+  });
 
   /* ---------- gift-box picker → fake-out → reveal (final scene) ---------- */
   var picker = document.getElementById('gift-picker');
@@ -318,7 +317,7 @@
       $all('.stat-num[data-count]').forEach(function (e) { e.dataset.ran = ''; e.textContent = '0'; });
       if (envelope) envelope.classList.remove('open');
       if (envWrap) envWrap.classList.remove('show-letter');
-      var zf = document.getElementById('zepto-flip'); if (zf) zf.classList.remove('flipped');
+      $all('.zepto-flip').forEach(function (z) { z.classList.remove('flipped'); });
       resetPicker();
       goTo(0); // back to welcome
     });
