@@ -155,6 +155,17 @@
         <p class="pick-result" id="pick-result"></p>
       </div>
 
+      <div id="pin-gate" class="pin-gate hidden">
+        <div class="pin-card glass">
+          <span class="pin-lock">🔒</span>
+          <p class="pin-title">One last step</p>
+          <p class="pin-sub">Enter your secret PIN to unlock your gifts</p>
+          <input id="pin-input" class="pin-input" type="tel" inputmode="numeric" maxlength="4" autocomplete="off" placeholder="••••" aria-label="PIN" />
+          <button class="btn" id="pin-submit">Unlock 🎁</button>
+          <p class="pin-error" id="pin-error"></p>
+        </div>
+      </div>
+
       <div id="gift-card-wrap" class="gift-card-wrap hidden">
         <div class="zepto-flip" id="zepto-flip">
           <div class="zepto-flip-inner">

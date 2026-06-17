@@ -296,6 +296,22 @@ body{
   to{box-shadow:0 22px 90px rgba(255,90,100,.7),inset 0 1px 0 rgba(255,255,255,.3)}}
 /* two stacked cards: keep them on-screen */
 .gift-card-wrap{max-height:88vh;overflow-y:auto;width:100%;padding:6px 0}
+
+/* PIN gate */
+.pin-gate{display:flex;justify-content:center;width:100%;animation:popIn .7s var(--ease)}
+.pin-card{width:min(90vw,360px);border-radius:20px;padding:26px 22px;display:flex;flex-direction:column;
+  align-items:center;gap:12px;text-align:center}
+.pin-lock{font-size:2.2rem;filter:drop-shadow(0 0 14px rgba(255,179,71,.5))}
+.pin-title{font-size:1.3rem;font-weight:700;color:var(--ink)}
+.pin-sub{font-size:.92rem;color:var(--muted);line-height:1.4;max-width:24ch}
+.pin-input{width:170px;text-align:center;font-family:'JetBrains Mono',monospace;font-size:1.8rem;
+  letter-spacing:.5em;padding:.5em .2em .5em .7em;border-radius:12px;color:var(--gold);
+  background:rgba(0,0,0,.25);border:1px solid var(--glass-brd);outline:none;caret-color:var(--gold)}
+.pin-input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(255,179,71,.18)}
+.pin-error{min-height:1.2em;font-size:.85rem;color:#ff8a9b;font-weight:600}
+.pin-card.shake{animation:shake .45s}
+@keyframes shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-9px)}40%{transform:translateX(8px)}
+  60%{transform:translateX(-6px)}80%{transform:translateX(4px)}}
 .gift-msg{font-family:'Caveat',cursive;font-size:clamp(1.3rem,5.5vw,1.7rem);color:var(--gold);line-height:1.45;
   text-align:center;max-width:22ch;text-shadow:0 0 24px rgba(255,200,120,.35)}
 

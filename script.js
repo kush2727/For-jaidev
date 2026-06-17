@@ -265,25 +265,54 @@
   var giftBoxes = boxesWrap ? $all('.giftbox', boxesWrap) : [];
   var pickerLock = false;
   var pickTimers = [];
+  var GIFT_PIN = '1827';
+  var pinGate = document.getElementById('pin-gate');
+  var pinInput = document.getElementById('pin-input');
+  var pinSubmit = document.getElementById('pin-submit');
+  var pinError = document.getElementById('pin-error');
 
   function resetPicker() {
     pickTimers.forEach(clearTimeout); pickTimers = [];
     pickerLock = false;
     if (picker) picker.classList.remove('hidden');
     if (cardWrap) cardWrap.classList.add('hidden');
+    if (pinGate) pinGate.classList.add('hidden');
+    if (pinInput) pinInput.value = '';
+    if (pinError) pinError.textContent = '';
     if (pickResult) { pickResult.textContent = ''; pickResult.classList.remove('show'); }
     giftBoxes.forEach(function (b) {
       b.classList.remove('open', 'gone', 'winner');
       b.style.pointerEvents = '';
     });
   }
+  // after the box opens → ask for the PIN (gate the card details)
   function revealCard() {
     if (picker) picker.classList.add('hidden');
+    if (pinGate) pinGate.classList.remove('hidden');
+    if (pinInput) { pinInput.value = ''; pickTimers.push(setTimeout(function () { pinInput.focus(); }, 300)); }
+  }
+  // correct PIN → actually show the cards
+  function unlockCards() {
+    if (pinGate) pinGate.classList.add('hidden');
     if (cardWrap) cardWrap.classList.remove('hidden');
     giftSound();                                // distinct reveal chime
     burstConfetti(220);
     pickTimers.push(setTimeout(function () { burstConfetti(160); }, 700));
   }
+  function tryPin() {
+    var val = (pinInput && pinInput.value || '').trim();
+    if (val === GIFT_PIN) { unlockCards(); }
+    else {
+      if (pinError) pinError.textContent = 'Incorrect PIN — try again 🙈';
+      if (pinGate) {
+        var card = pinGate.querySelector('.pin-card');
+        if (card) { card.classList.remove('shake'); void card.offsetWidth; card.classList.add('shake'); }
+      }
+      if (pinInput) { pinInput.value = ''; pinInput.focus(); }
+    }
+  }
+  if (pinSubmit) pinSubmit.addEventListener('click', tryPin);
+  if (pinInput) pinInput.addEventListener('keydown', function (e) { if (e.key === 'Enter') tryPin(); });
   giftBoxes.forEach(function (box, idx) {
     box.addEventListener('click', function () {
       if (pickerLock) return;
